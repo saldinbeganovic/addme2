@@ -1,3 +1,6 @@
 <h1>Wellcome to AddMe2</h1>
 <p class="lead">Instagram clone in ruby on rails</p>
 <%= link_to "Sing Up", new_account_registration_path, class: "btn btn-success" %>
+<%= link_to "Sign In", new_account_session_path, class: "btn btn-secondary" %>
+<%= link_to "New Post", new_post_path, class: "btn btn-secondary" %>
+<%= link_to "Odjava", destroy_account_session_path, method: :delete, class: 'btn btn-sm btn-outline-secondary' %>
