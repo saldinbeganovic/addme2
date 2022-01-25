@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: addme-saldin_production
-  username: addme-saldin
-  password: <%= ENV['ADDME-SALDIN_DATABASE_PASSWORD'] %>
+  database: addme_production
+  username: addme
+  password: <%= ENV['ADDME_DATABASE_PASSWORD'] %>
