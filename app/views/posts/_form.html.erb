@@ -1,9 +1,12 @@
-<%= form_with(model: @post, local: true) do |form|%>
+<%= form_for @post, html:{multipart: true} do |f|%>
 
 
-<%= form.file_field :image, class:"form-control" %>
-<%= form.hidden_field :temp_file, class:"form-control" %>
+<%= f.file_field :image, class:"form-control" %>
+<%= f.text_field :body, class:"form-control" %>
 
-<%= form.submit "Save Post", class: "btn btn-success" %>
+
+
+
+<%= f.submit "Save Post", class: "btn btn-success" %>
 
 <%end%>
