@@ -3,6 +3,7 @@ before_action :authenticate_account!
 
   def index
     #user feed
+    @post = Post.active
   end
 
   def show

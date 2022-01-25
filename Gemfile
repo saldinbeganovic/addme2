@@ -27,6 +27,7 @@ gem 'devise'
 gem 'carrierwave', "0.10.0"
 gem 'fog', '~> 1.37.0'
 gem 'mini_magick'
+gem 'aws-sdk', '~> 3'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
