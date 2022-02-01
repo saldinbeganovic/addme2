@@ -1,19 +1,54 @@
-<%= "#{@post.size.to_s} post found"%>
+
 <div class="containter">
 
-<div class="row">
+  <div class="row">
+    <div class="col-8">
+      <% @posts.each do |post|%>
+        <div class="insta-post">
+          <div class="post-meta">
+            <%= link_to (image_tag post.account.image.url, class: "thumb"), profile_path(post.account.username) %>
+          <%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %>
 
-<div class="col-8">
+          </div>
+        <%= image_tag post.image.url, class: "img img-fluid"%>
 
 
-      <% @post.each do |post|%>
-      <div class="">
-        <%= post.account.username %>
+
+        <div class="post-details">
+          <div class="post-actions">
+            <i class="fa fa-heart text-muted fa-2x post-like"></i>
+            <i class="fa fa-comment text-muted fa-2x post-comment"></i>
+          </div>
+          <p><strong><%= post.total_likes %> likes</strong></p>
+            <p><strong><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %></strong></p>
+
+          <%= simple_format post.body %>
+
+            <p class="text-muted">  <%= time_ago_in_words post.created_at %> ago</p>
         </div>
-      <%= image_tag post.image.url, class: "img img-fluid"%>
-      <% end %>
-</div>
-</div>
 
 
+
+        </div>
+        <% end %>
+
+
+    </div>
+
+      <div class="col-4">
+        <div class="account-summary">
+          <p>
+          <%= link_to (image_tag current_account.image.url, class: "thumb"), profile_path(current_account.username) if current_account.image.url %>
+          <strong><%= link_to current_account.username, profile_path(current_account.username), class: "text-dark no-underline" %></strong></p>
+          <p><%= current_account.full_name %> </p>
+        </div>
+        <div class="follower-suggestions">
+         <%= link_to "View All", "#", class: "float-end" %>
+          <p class="text-muted">Suggestions for you</p>
+
+        </div>
+
+      </div>
+
+  </div>
 </div>

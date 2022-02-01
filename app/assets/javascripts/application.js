@@ -10,15 +10,6 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
- *= require styles
- *= require fontawesome.min
- *= require fontawesome
- $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
- *= require @fortawesome/fontawesome-free/scss/fontawesome
- *= require @fortawesome/fontawesome-free/scss/solid
- *= require @fortawesome/fontawesome-free/scss/regular
- *= require @fortawesome/fontawesome-free/scss/brands
- *= require @fortawesome/fontawesome-free/scss/v4-shims
+ *= fontawesome.min
+ *= @fortawesome/fontawesome-free/js/all
  */
