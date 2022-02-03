@@ -6,7 +6,10 @@
       <% @posts.each do |post|%>
         <div class="insta-post">
           <div class="post-meta">
-            <%= link_to (image_tag post.account.image.url, class: "thumb"), profile_path(post.account.username) %>
+
+                <%=  link_to profile_picture_post(post, 45), profile_path(post.account.username) %>
+
+
           <%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %>
 
           </div>
@@ -16,11 +19,11 @@
 
         <div class="post-details">
           <div class="post-actions">
-            <i class="fa fa-heart text-muted fa-2x post-like"></i>
-            <i class="fa fa-comment text-muted fa-2x post-comment"></i>
+            <i class="fa fa-heart like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-2x post-like" data-id=<%= post.id %>></i>
+            <i class="fa fa-comment  fa-2x post-comment"></i>
           </div>
-          <p><strong><%= post.total_likes %> likes</strong></p>
-            <p><strong><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %></strong></p>
+          <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count %> likes</strong></p>
+            <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %></strong></p>
 
           <%= simple_format post.body %>
 
@@ -38,14 +41,14 @@
       <div class="col-4">
         <div class="account-summary">
           <p>
-          <%= link_to (image_tag current_account.image.url, class: "thumb"), profile_path(current_account.username) if current_account.image.url %>
+          <%= link_to (image_tag current_account.image.url, width:50,height:50, class: "thumb"), profile_path(current_account.username) if current_account.image.url %>
           <strong><%= link_to current_account.username, profile_path(current_account.username), class: "text-dark no-underline" %></strong></p>
           <p><%= current_account.full_name %> </p>
         </div>
         <div class="follower-suggestions">
          <%= link_to "View All", "#", class: "float-end" %>
           <p class="text-muted">Suggestions for you</p>
-
+          <%= render "accounts/follower_suggestions" %>
         </div>
 
       </div>

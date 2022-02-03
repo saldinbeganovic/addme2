@@ -15,8 +15,7 @@
   }
 }
 .thumb{
-  height: 45px;
-  width: 45px;
+
     border-radius: 50%;
 }
 .no-underline{
@@ -27,5 +26,24 @@
   background: #fff;
   padding: 15px;
   border: 1px solid #ddd;
+
+}
+.post-actions{
+  margin-bottom: 20px;
+  i{
+    margin-right: 10px;
+    color: #ddd;
+    cursor: pointer;
+  }
+  i.active{
+    color: #ed4956;
+  }
+  i:hover{
+    color: #c7c7c7;
+  }
+  .active:hover{
+    color: #bf3f4a;
+  }
+
 
 }

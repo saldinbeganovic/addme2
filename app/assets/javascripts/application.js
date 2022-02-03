@@ -12,4 +12,5 @@
  *
  *= fontawesome.min
  *= @fortawesome/fontawesome-free/js/all
+*= posts
  */
