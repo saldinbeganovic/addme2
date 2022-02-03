@@ -1,19 +1,57 @@
-<%= "#{@post.size.to_s} post found"%>
+
 <div class="containter">
 
-<div class="row">
+  <div class="row">
+    <div class="col-8">
+      <% @posts.each do |post|%>
+        <div class="insta-post">
+          <div class="post-meta">
 
-<div class="col-8">
+                <%=  link_to profile_picture_post(post, 45), profile_path(post.account.username) %>
 
 
-      <% @post.each do |post|%>
-      <div class="">
-        <%= post.account.username %>
+          <%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %>
+
+          </div>
+        <%= image_tag post.image.url, class: "img img-fluid"%>
+
+
+
+        <div class="post-details">
+          <div class="post-actions">
+            <i class="fa fa-heart like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-2x post-like" data-id=<%= post.id %>></i>
+            <i class="fa fa-comment  fa-2x post-comment"></i>
+          </div>
+          <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count %> likes</strong></p>
+            <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %></strong></p>
+
+          <%= simple_format post.body %>
+
+            <p class="text-muted">  <%= time_ago_in_words post.created_at %> ago</p>
         </div>
-      <%= image_tag post.image.url, class: "img img-fluid"%>
-      <% end %>
-</div>
-</div>
 
 
+
+        </div>
+        <% end %>
+
+
+    </div>
+
+      <div class="col-4">
+        <div class="account-summary">
+          <p>
+          <%= link_to (image_tag current_account.image.url, width:50,height:50, class: "thumb"), profile_path(current_account.username) if current_account.image.url %>
+          <strong><%= link_to current_account.username, profile_path(current_account.username), class: "text-dark no-underline" %></strong></p>
+          <p><%= current_account.full_name %> </p>
+        </div>
+        <div class="follower-suggestions">
+         <%= link_to "View All", "#", class: "float-end" %>
+          <p class="text-muted">Suggestions for you</p>
+          <%= render "accounts/follower_suggestions" %>
+        </div>
+
+      </div>
+
+  </div>
 </div>
