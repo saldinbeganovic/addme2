@@ -1,6 +1,25 @@
-<li class="nav-item">
-<%= link_to "Home", dashboard_path, class: "nav-link" %>
+<li class="nav-item <%= active_for(path: "/dashboard") %>">
+ <%= link_to (inline_svg_tag "home.svg", class: 'nav-svg'), dashboard_path, class: "nav-link" %>
 </li>
-<li class="nav-item"><%= link_to "New Post", new_post_path, class: "nav-link" %></li>
-<li class="nav-item"><%= link_to "My Profile", profile_path(current_account.username), class: "nav-link" %></li>
-<li class="nav-item"><%= link_to "Sing out",  destroy_account_session_path, method: :delete, class: "nav-link" %></li>
+<li class="nav-item <%= active_for(path: "/posts/new") %>">
+
+  <%= link_to (inline_svg_tag "add.svg", class: 'nav-svg'), new_post_path, class: "nav-link"%>
+</li>
+<li class="nav-item">
+
+  <%= link_to (inline_svg_tag "messenger.svg", class: 'nav-svg'), dashboard_path, class: "nav-link" %>
+</li>
+<li class="nav-item">
+
+  <%= link_to (inline_svg_tag "search.svg", class: 'nav-svg'), dashboard_path, class: "nav-link" %>
+</li>
+<li class="nav-item">
+
+  <%= link_to (inline_svg_tag "heart.svg", class: 'nav-svg fill-svg'), dashboard_path, class: "nav-link" %>
+</li>
+<li class="nav-item <%= active_profile(path: "/profile/#{current_account.username}") %>">
+  <%=link_to (image_tag current_account.image.present? ? current_account.image.variant(saver: { quality: 10 }, resize_to_limit: [700, 500]).processed.service_url : "default-avatar.jpg", width:24,height:24, class: "thumb svg"), profile_path(current_account.username), class: "nav-link" %>
+<li class="nav-item">
+  <%= link_to "Sing out",  destroy_account_session_path, method: :delete, class: "nav-link" %>
+
+</li>

@@ -1,3 +1,4 @@
+$(document).on('turbolinks:load', function() {
 $(function() {
   $(".post-like").on("click", function(){
     console.log("hej!");
@@ -10,3 +11,4 @@ $(function() {
       });
     })
   });
+  })

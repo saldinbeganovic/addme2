@@ -13,11 +13,12 @@
         <%= csrf_meta_tags %>
         <%= csp_meta_tag %>
 
-        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload', 'turbolinks-visit-control': 'reload' %>
+        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', 'turbolinks-visit-control': 'reload' %>
         <!-- Favicon-->
       <!--  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
+
 
     </head>
 
@@ -26,9 +27,9 @@
   <body>
     <!-- Responsive navbar-->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top ">
         <div class="container">
-            <a class="navbar-brand" href="/">AddMe</a>
+          <%= link_to (image_tag "logo.png", width:"110px", height:"50px"), dashboard_path%>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">

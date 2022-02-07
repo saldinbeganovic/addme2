@@ -1,35 +1,59 @@
 
 <div class="containter">
 
-  <div class="row">
-    <div class="col-8">
+  <div class="row d-flex justify-content-center">
+    <div class="col-6">
       <% @posts.each do |post|%>
         <div class="insta-post">
           <div class="post-meta">
 
-                <%=  link_to profile_picture_post(post, 45), profile_path(post.account.username) %>
+                <%=  link_to profile_picture_post(post, 36), profile_path(post.account.username) %>
 
 
-          <%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %>
+          <%= link_to post.account.username, profile_path(post.account.username), class: "color no-underline" %>
 
           </div>
-        <%= image_tag post.image.url, class: "img img-fluid"%>
-
+        <%= image_tag post.image.variant(saver: { quality: 10 }, resize_to_limit: [700, 500]).processed.service_url, class: "img img-fluid"%>
 
 
         <div class="post-details">
           <div class="post-actions">
-            <i class="fa fa-heart like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-2x post-like" data-id=<%= post.id %>></i>
-            <i class="fa fa-comment  fa-2x post-comment"></i>
+            <i class="far fa-heart like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-2x post-like" data-id=<%= post.id %>></i>
+            <i class="far fa-comment  fa-2x post-comment"></i>
           </div>
           <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count %> likes</strong></p>
-            <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "text-dark no-underline" %></strong></p>
+            <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "color no-underline" %></strong></p>
 
           <%= simple_format post.body %>
+            <%= render "posts/comments", post: post %>
 
-            <p class="text-muted">  <%= time_ago_in_words post.created_at %> ago</p>
+
+
+            <p class="text-muted marginos">  <%= time_ago_in_words post.created_at %> ago</p>
         </div>
+        <div class="comment-box">
+          <%= form_for @comment do |f|%>
+            <%= f.hidden_field :post_id, value: post.id %>
 
+            <div class="input-group">
+              <script>
+                $(document).on('turbolinks:load', function() {
+                $(document).ready(function(){
+                  $("#myTextarea<%= post.id %>").emojioneArea({
+                    pickerPosition:"top"
+                  });
+                });
+              });
+              </script>
+
+            <%= f.text_field :comment, placeholder: "Add a comment...", class:"form-control post-comment", id:"myTextarea#{post.id}" %>
+
+            <div class="input-group-append">
+            <%= f.submit "Post", class: "btn btn-success float-end post-submit"  %>
+            </div>
+            </div>
+          <% end %>
+        </div>
 
 
         </div>
@@ -37,20 +61,75 @@
 
 
     </div>
+      <div class="col-4 ">
+        <div class="sticky-top topem">
 
-      <div class="col-4">
+
         <div class="account-summary">
-          <p>
-          <%= link_to (image_tag current_account.image.url, width:50,height:50, class: "thumb"), profile_path(current_account.username) if current_account.image.url %>
-          <strong><%= link_to current_account.username, profile_path(current_account.username), class: "text-dark no-underline" %></strong></p>
-          <p><%= current_account.full_name %> </p>
+          <div class="row padinjo">
+        <div class="col-sm-3 col-lg-2 d-flex justify-content-center">
+
+
+
+          <%= link_to (image_tag current_account.image.variant(saver: { quality: 10 }, resize_to_limit: [700, 500]).processed.service_url, width:56,height:56, class: "thumb macak"), profile_path(current_account.username) if current_account.image.url %>
+
+          </div>
+          <div class="col-sm-9 col-lg-10">
+          <strong><%= link_to current_account.username, profile_path(current_account.username), class: "color no-underline" %></strong>
+          <p class="color3">  <%= current_account.full_name %></p>
+          </div>
+
+         </div>
+
+
         </div>
         <div class="follower-suggestions">
          <%= link_to "View All", "#", class: "float-end" %>
-          <p class="text-muted">Suggestions for you</p>
+          <p class="color3">Suggestions for you</p>
           <%= render "accounts/follower_suggestions" %>
         </div>
+        <div class="side-menu__footer">
+            <div class="side-menu__footer-links">
+                <ul class="side-menu__footer-list">
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">About</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Help</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Press</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">API</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Jobs</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Privacy</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Terms</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Locations</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Top Accounts</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Hashtag</a>
+                    </li>
+                    <li class="side-menu__footer-item">
+                        <a class="side-menu__footer-link" href="#">Language</a>
+                    </li>
+                </ul>
+            </div>
 
+            <span class="side-menu__footer-copyright">&copy; 2022 AddMe</span>
+        </div>
+        </div>
       </div>
 
   </div>

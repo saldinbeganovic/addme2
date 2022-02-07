@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 has_one_attached :image
 belongs_to :account
 has_many :likes
-
+has_many :comments
 
 
 
@@ -17,6 +17,6 @@ def set_active
 end
 
 def total_likes
-  69
+0
 end
 end

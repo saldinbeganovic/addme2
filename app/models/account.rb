@@ -4,10 +4,12 @@ class Account < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
 
-  has_many :posts
-    has_many :likes
+
+
+  has_many :posts, dependent: :destroy
+    has_many :likes, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"

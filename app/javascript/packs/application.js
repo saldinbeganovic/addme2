@@ -8,7 +8,10 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "custom/emojipicker.js"
+import "custom/loademoji.js"
 import "custom/posts.js"
+import "custom/thispage.js"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()

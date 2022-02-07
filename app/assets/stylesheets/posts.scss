@@ -1,18 +1,24 @@
 .insta-post{
   margin-bottom: 15px;
-  background-color: #fff;
+  background-color: #121212;
   text-align: center;
+  border-radius: 25px;
 }
 .post-meta{
-  background: #fff;
+  background: #121212;
   text-align: left;
   font-weight: bold;
   padding: 10px;
-  border: 1px solid #ddd;
-
+  border: 1px solid #121212;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-collapse: separate;
   img {
     margin-right: 10px;
   }
+}
+.img-fluid{
+  min-width: 100%;
 }
 .thumb{
 
@@ -23,10 +29,38 @@
 }
 .post-details{
   text-align: left;
-  background: #fff;
+  background: #121212;
   padding: 15px;
-  border: 1px solid #ddd;
+  padding-bottom: 0px;
+  border: 1px solid #121212;
+  color:#bcccdc;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-collapse: separate;
+}
+.color{
+  color:#E1F3FF;
+}
+.color2{
+    color:#bcccdc;
 
+}
+.color3{
+    color:#627d98;
+}
+.color4{
+    color:#bcccdc;
+}
+.whitespace{
+  white-space-collapsing:discard;
+  p{
+    padding : 0;
+    margin : 0;
+    line-height : 20px;
+  }
+}
+.marginini{
+  margin-top:5px;
 }
 .post-actions{
   margin-bottom: 20px;
@@ -46,4 +80,64 @@
   }
 
 
+}
+.comment-box{
+  padding: 10px;
+  padding-bottom: 12px;
+  background-color:#121212;
+  border-top: solid 1px #1e1e1e;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  text-align: left;
+
+}
+.input-group{
+
+  input{
+    box-shadow: none !important;
+    outline: none !important;
+    border: solid 1px #121212;
+    background-color: #121212;
+    color:#627d98;
+  }
+  input:hover{
+    box-shadow: none !important;
+    outline: none !important;
+    border: solid 1px #121212;
+    background-color: #121212;
+    color:#627d98;
+  }
+  input:active{
+    box-shadow: none !important;
+    outline: none !important;
+    border: solid 1px #121212;
+    background-color: #121212;
+    color:#627d98;
+  }
+  input:focus{
+    box-shadow: none !important;
+    outline: none !important;
+    border: solid 1px #121212;
+    background-color: #121212;
+    color:#627d98;
+  }
+}
+.post-comment{
+  box-shadow: none !important;
+  outline: none !important;
+  border: solid 1px #121212;
+  background-color: #121212;
+  color:#627d98;
+}
+.input-group-append{
+input{
+  color: #0093f5;
+}
+input:disabled{
+  color: #627d98;
+}
+}
+.marginos{
+  margin-top: 10px;
+  font-size: 12px;
 }

@@ -1,7 +1,123 @@
 // Place all the styles related to the public controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import 'rails_emoji_picker';
 
 .navbar{
   margin-bottom: 20px;
+  background-color: #121212;
+}
+
+.nav-svg{
+  height: 24px;
+  width: 24px;
+}
+
+.nav-svg {
+  path{
+    stroke:#bcccdc;
+  }
+  rect{
+    stroke:#bcccdc;
+  }
+  line{
+    stroke:#bcccdc;
+  }
+
+}
+.fill-svg{
+  path{
+    stroke:#bcccdc;
+    fill:#bcccdc;
+  }
+}
+.is-active{
+  path{
+    stroke:#2888DA;
+  }
+  rect{
+    stroke:#2888DA;
+  }
+  line{
+    stroke:#2888DA;
+  }
+}
+
+.is-active-image{
+  img{
+    border: solid;
+        border-color: #2888DA;
+        border-radius: 50%;
+  }
+}
+.nav-svg:hover {
+  path{
+    stroke:#546a80;
+  }
+  rect{
+    stroke:#546a80;
+  }
+  line{
+    stroke:#546a80;
+  }
+
+}
+.fill-svg:hover{
+  path{
+    stroke:#546a80;;
+    fill:#546a80;
+  }
+}
+.target{
+  width: 960px;
+  height: 520px;
+  background-image: url("placeholder.jpg");
+  background-position: center;
+
+
+}
+.macak{
+  margin-top: 2px;
+margin-left: 15px;
+}
+.topem{
+  top: 7.5em !important;
+}
+.side-menu__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+    margin-top: 1rem;
+    padding: 15px;
+}
+.side-menu__footer-links {
+    display: flex;
+}
+.side-menu__footer-list {
+    list-style: none;
+    padding-left: 0px !important;
+}
+.side-menu__footer-item {
+    display: inline-block;
+}
+.side-menu__footer-item:not(:last-of-type)::after {
+    content: '\00B7';
+    margin: 0 0.5px;
+}
+.side-menu__footer-item,
+.side-menu__footer-link,
+.side-menu__footer-copyright {
+    font-size: 11px;
+    font-weight: 400;
+    color: #627d98;
+    text-decoration: none;
+}
+.side-menu__footer-copyright {
+    text-transform: uppercase;
+}
+.padinjo{
+  padding-left: 15px;
+  padding-right: 15px;
 }

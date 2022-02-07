@@ -7,37 +7,47 @@
 
   </div>
   <div class="col-8 text-left2">
-    <h1><%= @account.full_name %></h1>
-    <%= link_to "Edit Profile", edit_account_registration_path, class: "btn btn-secondary" if can_edit_profile?(@account.id)  %>
+      <div class="row">
+    <div class="col-8">
 
-    <div class="row profile-stats">
+      <%= link_to "Edit Profile", edit_account_registration_path, class: "btn btn-custom btn-muted  float-end color2" if can_edit_profile?(@account.id)  %>
+    <h1 class="color2"><%= @account.username %></h1>
+
+  </div>
+  </div>
+    <div class="row profile-stats color2">
         <div class="col-4">
-        <%= @account.posts.count %> posts
+        <strong><%= @account.posts.count %></strong> posts
         </div>
         <div class="col-4">
-      <%= @account.total_followers %> followers
+      <strong><%= @account.total_followers %></strong> followers
       </div>
       <div class="col-4">
-      <%= @account.total_following %> following
+      <strong><%= @account.total_following %></strong> following
       </div>
 
 
     </div>
 
-    <p><%= @account.full_name %></p>
+    <p class="color2"> <strong><%= @account.full_name %></strong></p>
+    <div class="color2 whitespace">
+
+
     <%= simple_format @account.description %>
-    <p><%= link_to @account.website if @account.website.present? %></p>
+    </div>
+    <p class="color2 marginini"><%= link_to @account.website if @account.website.present? %></p>
 
   </div>
 
 
   </div>
-    <div class="row profile-posts">
+    <div class="row profile-posts color2">
 
         <% @posts.each do |post| %>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+
         <div class="insta-post">
-        <%= image_tag post.image.url, class: "img img-fluid"%>
+        <%= image_tag post.image.variant(saver: { quality: 10 }, resize_to_fill: [700, 500, gravity: 'north']).processed.service_url, class: "img img-fluid"%>
         </div>
           </div>
         <%end %>
