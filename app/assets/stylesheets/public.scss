@@ -1,7 +1,256 @@
 // Place all the styles related to the public controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import 'rails_emoji_picker';
 
 .navbar{
   margin-bottom: 20px;
+  background-color: #121212;
+}
+
+.nav-svg{
+  height: 24px;
+  width: 24px;
+}
+
+.nav-svg {
+  path{
+    stroke:#bcccdc;
+  }
+  rect{
+    stroke:#bcccdc;
+  }
+  line{
+    stroke:#bcccdc;
+  }
+
+}
+.fill-svg{
+  path{
+    stroke:#bcccdc;
+    fill:#bcccdc;
+  }
+}
+.is-active{
+  path{
+    stroke:#2888DA;
+  }
+  rect{
+    stroke:#2888DA;
+  }
+  line{
+    stroke:#2888DA;
+  }
+}
+
+.is-active-image{
+  img{
+    border: solid;
+        border-color: #2888DA;
+        border-radius: 50%;
+  }
+}
+.nav-svg:hover {
+  path{
+    stroke:#546a80;
+  }
+  rect{
+    stroke:#546a80;
+  }
+  line{
+    stroke:#546a80;
+  }
+
+}
+.fill-svg:hover{
+  path{
+    stroke:#546a80;;
+    fill:#546a80;
+  }
+}
+.target{
+  width: 960px;
+  height: 520px;
+  background-image: url("placeholder.jpg");
+  background-position: center;
+
+
+}
+.macak{
+  margin-top: 2px;
+margin-left: 15px;
+}
+.topem{
+  top: 7.5em !important;
+}
+.side-menu__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-align: left;
+    margin-top: 1rem;
+    padding: 15px;
+}
+.side-menu__footer-links {
+    display: flex;
+}
+.side-menu__footer-list {
+    list-style: none;
+    padding-left: 0px !important;
+}
+.side-menu__footer-item {
+    display: inline-block;
+}
+.side-menu__footer-item:not(:last-of-type)::after {
+    content: '\00B7';
+    margin: 0 0.5px;
+}
+.side-menu__footer-item,
+.side-menu__footer-link,
+.side-menu__footer-copyright {
+    font-size: 11px;
+    font-weight: 400;
+    color: #627d98;
+    text-decoration: none;
+}
+.side-menu__footer-copyright {
+    text-transform: uppercase;
+}
+.padinjo{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.header__search {
+    width: 216px;
+    height: 28px;
+    left: 30%;
+    align-items: center;
+    position: relative;
+}
+.header__search input {
+    width: 100%;
+    height: 100%;
+    background-color: #1d2025;
+    padding: 4px 10px 4px 28px;
+    border: 1px solid #1d2025;
+    border-radius: 4px;
+    outline: none;
+    font-size: 12px;
+    font-weight: 300;
+    text-decoration: none;
+    color: #627d98;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.header__search svg {
+  width: 15px;
+  height: 28px;
+    position: absolute;
+    left: 8px;
+}
+.btnfloat{
+  background-color: transparent;
+border: none;
+cursor: pointer;
+text-decoration: none;
+font-size: 12px;
+font-weight: 500;
+color: #0093f5;
+flex-shrink: 0;
+padding: 0 0 0 0;
+}
+.btnfloat:hover{
+  background-color: transparent;
+border: none;
+cursor: pointer;
+text-decoration: none;
+font-size: 12px;
+font-weight: 500;
+color: #627d98;
+flex-shrink: 0;
+
+}
+.color3{
+    color:#627d98;
+}
+.color4{
+    color:#bcccdc;
+}
+.input-group-append input:disabled {
+    color: #bcccdc;
+    background: #121212;
+    border: 0px;
+}
+.noround{
+  border-radius: 0px;
+  border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
+}
+.nopadinjo{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+
+}
+.d-flex2 {
+    display: flex !important;
+    align-items: center;
+}
+.d-flex3 {
+    display: flex !important;
+    align-items: stretch;
+}
+.comment{
+  margin-bottom: 15px;
+  word-wrap: break-word;
+}
+.bodi{
+  .emojionearea .emojionearea-editor {
+    display: block;
+    height: auto;
+    min-height: 15em;
+    max-height: 15em;
+    width: 100%;
+    overflow: auto;
+    padding: 6px 12px 6px 33px;
+    padding-left: 5px;
+    line-height: 1.42857143;
+    font-size: inherit;
+    font-weight: 400;
+    color: #bcccdc;
+    background-color: #121212;
+    border: none;
+    cursor: text;
+    margin-right: 1px;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    resize: none;
+    box-shadow: none;
+}
+.emojionearea, .emojionearea.form-control {
+    display: block;
+    position: relative!important;
+    width: auto;
+    height: auto;
+
+}
+.emojionearea .emojionearea-button {
+    z-index: 0;
+    position: absolute;
+    right: 3px;
+    left: auto;
+    top: 3px;
+    width: 24px;
+    height: 24px;
+    opacity: .6;
+    cursor: pointer;
+    -moz-transition: opacity .3s ease-in-out;
+    -o-transition: opacity .3s ease-in-out;
+    -webkit-transition: opacity .3s ease-in-out;
+    transition: opacity .3s ease-in-out;
+}
 }

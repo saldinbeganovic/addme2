@@ -2,8 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
 body{
-  background-color:#fafafa !important;
+  background-color:#1D2025 !important;
+  font-family: 'Roboto', sans-serif;
 }
 
 
@@ -14,9 +16,9 @@ body{
 }
 
 .follower-suggestions{
-  background: #fff;
+  background: #1D2025;
   padding: 15px;
-  border: 1px solid #ddd;
+  border: 1px solid #1D2025;
   border-radius: 4px;
 }
 
@@ -37,4 +39,13 @@ body{
 
 .profile-posts{
   margin-top: 50px !important;
+}
+.btn-custom{
+  background: #1D2025;
+  border: 1px solid #627d98 !important;
+      margin-top: 10px;
+      color: #627d98 !important;
+}
+.m-l-15{
+  margin-left: 15px;
 }

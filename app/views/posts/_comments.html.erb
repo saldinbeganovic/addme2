@@ -1,0 +1,14 @@
+
+<% post.comments.limit(limitComments()).order(orderBy()).each do |comment| %>
+
+
+
+<div class="comment" style="margin-bottom:1px;">
+<strong><%= link_to comment.account.username, profile_path(comment.account.username), class: "color no-underline" %></strong>
+<%= comment.comment %>
+<%= showAgo() %>
+</div>
+
+
+
+<% end %>

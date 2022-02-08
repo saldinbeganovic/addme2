@@ -1,0 +1,137 @@
+
+<div class="containter-fluid">
+
+  <div class="row-fluid d-flex justify-content-center ">
+    <div class="col-6 nopadinjo d-flex2" style="background: #121212;">
+
+
+        <%= image_tag @post.image.variant(saver: { quality: 50 }, resize_to_limit: [700, 500]).processed.service_url, class: "img img-fluid" if @post.image.present?%>
+
+
+
+
+
+
+
+
+    </div>
+      <div class="col-4 nopadinjo d-flex flex-column" style="
+    border-left: solid 0.5px #1e1e1e;
+">
+
+
+
+        <div class="post-meta noround" style="
+    border-bottom: solid 0.5px #1e1e1e;
+">
+
+              <%=  link_to profile_picture_post(@post, 36), profile_path(@post.account.username) %>
+
+
+        <%= link_to @post.account.username, profile_path(@post.account.username), class: "color no-underline" %>
+
+        </div>
+        <div class="post-details noround">
+          <div class="row">
+
+
+          <div class="col-sm-3 col-lg-2 d-flex justify-content-center comment">
+
+
+
+            <%= link_to  profile_picture_post(@post, 36), profile_path(@post.account.username) if  @post.account.image.url %>
+
+            </div>
+          <div class="col-sm-9 col-lg-10 " style="padding-left: 0px;">
+            <p style="max-width: 301px;
+
+                word-wrap: break-word;"><strong style="margin-right:3px;">
+                  <%= link_to  @post.account.username, profile_path( @post.account.username), class: "color no-underline" %>
+                </strong><%= simple_format( @post.body,  {},wrapper_tag: "span" ,class:"whitespace") %></p>
+
+          </div>
+
+
+
+
+
+</div>
+          <div class="comments-feed row">
+            <%= render "posts/comments2", post: @post %>
+          </div>
+
+
+
+          <div class="whitespace">
+
+
+            <div class="post-actions" style="
+    border-top: solid 0.5px #1e1e1e; padding-top: 5px;
+margin-bottom: 10px;" >
+
+
+
+
+              <i class="far fa-heart like-<%= @post.id %> <%= 'active' if post_liked_by_user?(@post.id) %> fa-2x post-like" data-id=<%= @post.id %>></i>
+              <i class="far fa-comment  fa-2x post-comment" id="post-comment"></i>
+            </div>
+            <p style="
+
+margin-bottom: 5px;"><strong id="post-<%= @post.id %>-likes" ><%=  @post.total_likes_count? ?  @post.total_likes_count : 0  %>
+              <%=if @post.total_likes_count == 1
+                  "like".html_safe
+              else
+                  "likes".html_safe
+              end %>
+            </strong></p>
+
+            <p class="text-muted marginos" style="
+
+margin-bottom: 5px;">  <%= time_ago_in_words @post.created_at %> ago</p>
+              </div>
+        </div>
+        <div class="comment-box noround">
+          <%= form_for @comment do |f|%>
+            <%= f.hidden_field :post_id, value: @post.id %>
+            <%= f.hidden_field :return_to, value: "post" %>
+
+            <div class="input-group">
+              <script>
+                $(document).on('turbolinks:load', function() {
+                $(document).ready(function(){
+                  $("#myTextarea").emojioneArea({
+                    pickerPosition:"top"
+                  });
+                });
+
+
+
+                });
+                $(document).on('turbolinks:load', function() {
+                  $(document).ready(function() {
+
+
+                        var empty = true;
+                        $('input[type="text"]').each(function() {
+                          if ($(this).val() != "") {
+                            empty = false;
+                            return false;
+                          }
+
+                      });
+                    });});
+              </script>
+
+            <%= f.text_field :comment, placeholder: "Add a comment...", class:"form-control post-comment", id:"myTextarea" %>
+
+            <div class="input-group-append">
+            <%= f.submit "Post", class: "btn btn-success float-end post-submit", id:"submitID#{@post.id}"  %>
+            </div>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+
+  </div>
+</div>

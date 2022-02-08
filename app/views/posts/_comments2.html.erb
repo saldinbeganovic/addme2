@@ -1,0 +1,22 @@
+<% post.comments.limit(limitComments()).order(orderBy()).each do |comment| %>
+
+<div class="col-sm-3 col-lg-2 d-flex justify-content-center comment">
+
+
+
+  <%= link_to  profile_picture( comment.account, 36), profile_path( comment.account.username) if  comment.account.image.url %>
+
+  </div>
+<div class="col-sm-9 col-lg-10 " style="
+    padding-left: 0px;
+">
+  <%= link_to "Delete", "#", class: "float-end  btnfloat ", style: "padding-top:2px;" if can_edit_profile?(comment.account_id) %>
+<p style="max-width: 301px;
+
+    word-wrap: break-word;"><strong style="margin-right:3px;"><%= link_to  comment.account.username, profile_path( comment.account.username), class: "color no-underline" %></strong><span class="color3"><%= comment.comment %></span></p>
+<p style="font-size:12px;"><%= time_ago_in_words comment.created_at %> ago </p>
+</div>
+
+
+
+<% end %>

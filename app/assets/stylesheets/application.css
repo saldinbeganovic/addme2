@@ -21,4 +21,8 @@
  *= require @fortawesome/fontawesome-free/scss/regular
  *= require @fortawesome/fontawesome-free/scss/brands
  *= require @fortawesome/fontawesome-free/scss/v4-shims
+ *= require commontator/application
+ *= require rails_emoji_picker
+ *= require emojiarea
+
  */

@@ -13,4 +13,6 @@
  *= fontawesome.min
  *= @fortawesome/fontawesome-free/js/all
 *= posts
+*= thispage
+*=rails_emoji_picker
  */

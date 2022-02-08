@@ -1,20 +1,20 @@
-<% @follower_suggestions.each do |account| %>
+<% @follower_suggestions.limit(5).order("RANDOM()").each do |account| %>
 <div class="recommended-follower">
   <div class="row">
-<div class="col-sm-3 col-lg-2">
+<div class="col-sm-3 col-lg-2 d-flex justify-content-center">
 
 
 
-  <%=  link_to profile_picture(account, 45), profile_path(account.username) %>
+  <%=  link_to profile_picture(account, 36), profile_path(account.username) %>
 
   </div>
   <div class="col-sm-9 col-lg-10">
   <%= form_tag follow_account_path, method: :post, class: "float-end" do %>
   <%=  hidden_field_tag :follow_id, account.id %>
-    <%=  submit_tag "Follow", class: "btn btn-info btn-sm" %>
+    <%=  submit_tag "Follow", class: " btnfloat " %>
   <% end %>
-  <%= link_to account.username, profile_path(account.username), class: "text-dark no-underline" %> <br>
-  <p class="text-muted">  <%= account.created_at > 2.days.ago ? "New to AddMe" : "Followed by god" %></p>
+  <%= link_to account.username, profile_path(account.username), class: "color4 no-underline" %> <br>
+  <p class="color3">  <%= account.created_at > 2.days.ago ? "New to AddMe" : "Followed by god" %></p>
   </div>
 
  </div>

@@ -28,9 +28,16 @@ gem 'carrierwave', "0.10.0"
 gem 'fog', '~> 1.37.0'
 gem 'mini_magick'
 gem 'aws-sdk', '~> 3'
+gem 'commontator'
+gem 'jquery-rails'
+gem 'sassc-rails'
+gem 'inline_svg'
+gem 'gemoji'
+gem 'rails_emoji_picker'
+gem 'omniauth-facebook'
 
 # Use Active Storage variant
- #gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
