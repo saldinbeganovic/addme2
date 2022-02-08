@@ -19,7 +19,4 @@
 </li>
 <li class="nav-item <%= active_profile(path: "/profile/#{current_account.username}") %>">
   <%=link_to (image_tag current_account.image.present? ? current_account.image.variant(saver: { quality: 10 }, resize_to_limit: [700, 500]).processed.service_url : "default-avatar.jpg", width:24,height:24, class: "thumb svg"), profile_path(current_account.username), class: "nav-link" %>
-<li class="nav-item">
-  <%= link_to "Sing out",  destroy_account_session_path, method: :delete, class: "nav-link" %>
-
 </li>

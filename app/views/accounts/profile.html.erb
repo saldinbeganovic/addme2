@@ -41,16 +41,28 @@
 
 
   </div>
-    <div class="row profile-posts color2">
+    <div class="row profile-posts color2" style="
+padding-left: 105px;
+padding-right: 200px;">
+
+
+
 
         <% @posts.each do |post| %>
-        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+        <div class="col-lg-4 col-md-12 mb-4 mb-lg-0" >
 
-        <div class="insta-post">
-        <%= image_tag post.image.variant(saver: { quality: 10 }, resize_to_fill: [700, 500, gravity: 'north']).processed.service_url, class: "img img-fluid"%>
+        <div class="insta-post post-square" style="background:url(<%= post.image.variant(saver: { quality: 50 }, resize_to_fill: [700, 500, gravity: 'north']).processed.service_url%>) no-repeat center top; border-radius: 0px;">
+            <%= link_to post_path(post) do  %>
+          <div class="post-stats">
+            <div class="inner">
+            <i class="fa fa-heart ikone"> </i><%=  post.total_likes_count? ?  post.total_likes_count : 0 %>
+            <i class="fa fa-comment m-l-15 ikone"> </i><%= post.total_comments_count? ?  post.total_comments_count : 0%>
+            </div>
+            </div>
+              <%end %>
+
         </div>
-          </div>
+        </div>
         <%end %>
       </div>
-
 </div>

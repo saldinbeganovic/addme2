@@ -34,6 +34,7 @@ gem 'sassc-rails'
 gem 'inline_svg'
 gem 'gemoji'
 gem 'rails_emoji_picker'
+gem 'omniauth-facebook'
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'

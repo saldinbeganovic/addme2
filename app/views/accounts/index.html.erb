@@ -13,18 +13,30 @@
           <%= link_to post.account.username, profile_path(post.account.username), class: "color no-underline" %>
 
           </div>
-        <%= image_tag post.image.variant(saver: { quality: 10 }, resize_to_limit: [700, 500]).processed.service_url, class: "img img-fluid"%>
+        <%= image_tag post.image.variant(saver: { quality: 50 }, resize_to_limit: [700, 500]).processed.service_url, class: "img img-fluid"%>
 
 
         <div class="post-details">
           <div class="post-actions">
             <i class="far fa-heart like-<%= post.id %> <%= 'active' if post_liked_by_user?(post.id) %> fa-2x post-like" data-id=<%= post.id %>></i>
+            <%= link_to post_path(post.id) do %>
             <i class="far fa-comment  fa-2x post-comment"></i>
+          <% end %>
           </div>
-          <p><strong id="post-<%= post.id %>-likes"><%= post.total_likes_count %> likes</strong></p>
-            <p><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "color no-underline" %></strong></p>
+          <p><strong id="post-<%= post.id %>-likes"><%=  post.total_likes_count? ?  post.total_likes_count : 0  %>
+            <%=if post.total_likes_count == 1
+                "like".html_safe
+            else
+                "likes".html_safe
+            end %>
+          </strong></p>
+          <div class="whitespace" style="display: flex; margin-bottom:5px;">
 
-          <%= simple_format post.body %>
+
+            <p style="margin-right: 3px; "><strong id="post-<%= post.id %>-comments"><%= link_to post.account.username, profile_path(post.account.username), class: "color no-underline" %></strong>
+</p>
+          <%= simple_format post.body%>
+          </div>
             <%= render "posts/comments", post: post %>
 
 
@@ -43,13 +55,29 @@
                     pickerPosition:"top"
                   });
                 });
-              });
+
+
+
+                });
+                $(document).on('turbolinks:load', function() {
+                  $(document).ready(function() {
+
+
+                        var empty = true;
+                        $('input[type="text"]').each(function() {
+                          if ($(this).val() != "") {
+                            empty = false;
+                            return false;
+                          }
+
+                      });
+                    });});
               </script>
 
             <%= f.text_field :comment, placeholder: "Add a comment...", class:"form-control post-comment", id:"myTextarea#{post.id}" %>
 
             <div class="input-group-append">
-            <%= f.submit "Post", class: "btn btn-success float-end post-submit"  %>
+            <%= f.submit "Post", class: "btn btn-success float-end post-submit", id:"submitID#{post.id}"  %>
             </div>
             </div>
           <% end %>
@@ -57,7 +85,8 @@
 
 
         </div>
-        <% end %>
+
+      <% end %>
 
 
     </div>
@@ -75,6 +104,7 @@
 
           </div>
           <div class="col-sm-9 col-lg-10">
+            <%= link_to "Log Out", destroy_account_session_path, class: "float-end  btnfloat " %>
           <strong><%= link_to current_account.username, profile_path(current_account.username), class: "color no-underline" %></strong>
           <p class="color3">  <%= current_account.full_name %></p>
           </div>
@@ -84,7 +114,7 @@
 
         </div>
         <div class="follower-suggestions">
-         <%= link_to "View All", "#", class: "float-end" %>
+         <%= link_to "View All", "#", class: "float-end btnfloat color4" %>
           <p class="color3">Suggestions for you</p>
           <%= render "accounts/follower_suggestions" %>
         </div>
