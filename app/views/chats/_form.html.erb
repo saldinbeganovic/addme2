@@ -1,0 +1,13 @@
+<%= form_with model: @chat do |form| %>
+
+
+
+  <div class="field">
+    <%= form.label :name, style: "color:white;" %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save", class: "btn btn-primary btn-block" %>
+  </div>
+<% end %>

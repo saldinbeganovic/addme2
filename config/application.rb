@@ -12,7 +12,7 @@ module Addme
     config.load_defaults 6.1
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
     # Configuration for the application, engines, and railties goes here.
-    #
+    Rails.application.config.action_view.form_with_generates_remote_forms = false
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

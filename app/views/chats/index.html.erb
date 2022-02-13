@@ -1,0 +1,42 @@
+<div id="chat_id" class="<%= @chat.try(:id) %>"></div>
+<div id="user_id" class="<%= current_account.id %>"></div>
+
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-3">
+  <%= render 'form', room: Chat.new %>
+      <hr>
+
+   <% @chats.each do |chat| %>
+     <%= link_to chat, class: 'chat-link' do %>
+       <% active_class = (@chat == chat) ? 'active' : '' %>
+       <div class="card no-outline mb-2 chat-card <%= active_class %>">
+         <div class="card-body">
+           <span class='name'><%= chat.name %></span><br>
+         </div>
+       </div>
+     <% end %>
+   <% end %>
+ </div>
+ <div class="col-9">
+   <% if @chat.present? %>
+     <div class="chat-room">
+       <nav class="navbar navbar-light">
+         <span class="navbar-brand" href="#">
+           <b><%= @chat.name %></b>
+         </span>
+       </nav>
+       <div id="messages">
+         <% @chat.messages.each do |message| %>
+           <%= render 'messages/message', message: message %>
+         <% end %>
+       </div>
+       <div class="chat-box">
+         <%= render 'messages/form', message: Message.new, chat: @chat %>
+       </div>
+     </div>
+   <% end %>
+ </div>
+</div>
+</div>
