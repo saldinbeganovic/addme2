@@ -9,6 +9,7 @@ class ChatsController < ApplicationController
   # GET /chats/1 or /chats/1.json
   def show
     @chats = Chat.all
+    @accounts = Account.all
     render 'index'
   end
 

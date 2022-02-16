@@ -3,23 +3,48 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 body{
   color: white !important;
-  overflow-y: hidden;
-    overflow-x: hidden;
+}
+.overflov{
+  overflow-y: hidden !important;
+    overflow-x: hidden !important;
   ::-webkit-scrollbar {
-    display: none;
+    display: none !important;
   }
-  -ms-overflow-style: none;
+  -ms-overflow-style: none !important;
 }
 a{
   text-decoration: none !important;
 }
+@media (max-width: 40rem){
+  .chat-box {
+    display: table;
+    position: absolute !important;
+    bottom: -10px !important;
+    padding: 20px !important;
+    width: calc(100% + 30px) !important;
+    max-width: 137vh;
+
+    background-color:#1D2025;
+
+    border-top: 1px solid #121212;
+    input[type=text] {
+      height: 45px;
+      font-size: 18px;
+      padding: 8px;
+    }
+    .btn {
+      height: 45px;
+    }
+  }
+
+}
 .chat-room {
-  height: 100vh;
+  height: 79.5vh;
 
   #messages {
     height: 100%;
     overflow-y: scroll;
-    padding-bottom: 280px;
+    padding-bottom: 75px;
     padding-top: 20px;
   }
 
@@ -127,4 +152,11 @@ a{
 .neki{
   padding: 5px;
 
+}
+.form-control:focus {
+
+  background-color: #fff !important;
+  border: 0px !important;
+   outline: 0 !important;
+box-shadow: 0 0 0 0 !important;
 }

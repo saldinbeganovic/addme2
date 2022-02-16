@@ -1,7 +1,11 @@
 import consumer from "./consumer"
 
 $(document).on('turbolinks:load', function() {
-    const cht_id = document.getElementById("chat_id").className;
+  var elementExists = document.getElementById("chat_id");
+  if(elementExists){
+  var cht_id = document.getElementById("chat_id").className;
+}
+
 
 
     consumer.subscriptions.subscriptions.forEach((subscription) => {
@@ -40,7 +44,7 @@ $(document).on('turbolinks:load', function() {
 
 
 
-    
+
 
 
 

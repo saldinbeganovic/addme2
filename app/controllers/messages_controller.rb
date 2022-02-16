@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
    @message.save
 
   SendMessageJob.perform_later (@message)
-
+  
   redirect_to @message.chat
   end
 
