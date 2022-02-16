@@ -1,0 +1,13 @@
+<div class="message mb-2 <%= "me" if message.account.id == current_account.id %>">
+  <div class="content-container">
+
+
+  <div class="content">
+
+  <%= message.content %>
+  </div>
+  <div class="author">
+    <%= message.account.username %>
+  </div>
+    </div>
+</div>

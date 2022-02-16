@@ -24,7 +24,7 @@ gem 'devise'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'carrierwave', "0.10.0"
+
 gem 'fog', '~> 1.37.0'
 gem 'mini_magick'
 gem 'aws-sdk', '~> 3'
@@ -34,7 +34,17 @@ gem 'sassc-rails'
 gem 'inline_svg'
 gem 'gemoji'
 gem 'rails_emoji_picker'
+gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
+gem 'omniauth-rails_csrf_protection'
+gem 'redis'
+gem 'rb-readline'
+
+
+
 
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
