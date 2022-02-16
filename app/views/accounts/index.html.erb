@@ -100,7 +100,9 @@
 
 
 
-          <%= link_to (image_tag current_account.image.variant(saver: { quality: 10 }, resize_to_limit: [700, 500]).processed.service_url, width:56,height:56, class: "thumb macak"), profile_path(current_account.username) if current_account.image.url %>
+          <%=
+          link_to profile_picture(current_account, 56), profile_path(current_account.username)
+          %>
 
           </div>
           <div class="col-sm-9 col-lg-10">

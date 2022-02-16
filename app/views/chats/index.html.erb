@@ -1,5 +1,19 @@
+<div class="overflov">
+
+
 <div id="chat_id" class="<%= @chat.try(:id) %>"></div>
 <div id="user_id" class="<%= current_account.id %>"></div>
+
+<script>
+  $(document).on('turbolinks:load', function() {
+    $(document).ready(function(){
+    $("#messages").animate({scrollTop: 1000000},800);
+      });
+
+      })
+
+</script>
+
 
 
 <div class="container-fluid">
@@ -24,19 +38,38 @@
      <div class="chat-room">
        <nav class="navbar navbar-light">
          <span class="navbar-brand" href="#">
-           <b><%= @chat.name %></b>
+
+
+             <b><%=
+             @chat.name
+             %></b>
+
+
          </span>
        </nav>
        <div id="messages">
          <% @chat.messages.each do |message| %>
+         <%= if message.account_id != current_account.id
+
+         end %>
            <%= render 'messages/message', message: message %>
          <% end %>
        </div>
+       <script>
+         $(document).on('turbolinks:load', function() {
+         $(document).ready(function(){
+           $("#chatbox").emojioneArea({
+             pickerPosition:"top"
+           });
+         });
+         });
+       </script>
        <div class="chat-box">
          <%= render 'messages/form', message: Message.new, chat: @chat %>
        </div>
      </div>
    <% end %>
  </div>
+</div>
 </div>
 </div>
