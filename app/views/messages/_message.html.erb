@@ -5,9 +5,12 @@
   <div class="content">
 
   <%= message.content %>
+
+  <%= link_to "   X", "/messages/#{message.id}", method: :delete, class: "float-end  btnfloat ", style: "padding-top:4px; font-weight: bold; padding-left: 8px; color: black;" if can_edit_profile?(message.account_id) %>
+
   </div>
   <div class="author">
-    <%= link_to message.account.username, profile_path(message.account.username), class: "no-underline"   %>
+    <%= link_to message.account.username, profile_path(message.account.username), class: "no-underline", style: "color: #627d98;"   %>
   </div>
     </div>
 </div>

@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
    @message.save
 
   SendMessageJob.perform_later (@message)
-  
+
   redirect_to @message.chat
   end
 
@@ -46,10 +46,7 @@ class MessagesController < ApplicationController
   # DELETE /messages/1 or /messages/1.json
   def destroy
     @message.destroy
-    respond_to do |format|
-      format.html { redirect_to messages_url, notice: "Message was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    redirect_to @message.chat
   end
 
   private

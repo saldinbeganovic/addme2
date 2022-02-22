@@ -15,7 +15,9 @@ mount Commontator::Engine => '/commontator'
 mount ActionCable.server => '/cable'
 
 resources :posts, only: [:new,:create,:show]
-resources :comments, only: [:create]
+resources :comments, only: [:create, :destroy]
+resources :messages, only: [:create, :destroy]
+
 
  root to: "public#homepage"
 
