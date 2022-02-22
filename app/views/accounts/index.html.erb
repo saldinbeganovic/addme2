@@ -106,7 +106,7 @@
 
           </div>
           <div class="col-sm-9 col-lg-10">
-            <%= link_to "Log Out", "/accounts/sign_out", method: :delete; class: "float-end  btnfloat " %>
+            <%= link_to "Log Out", "/accounts/sign_out", method: :delete, class: "float-end  btnfloat " %>
           <strong><%= link_to current_account.username, profile_path(current_account.username), class: "color no-underline" %></strong>
           <p class="color3">  <%= current_account.full_name %></p>
           </div>
