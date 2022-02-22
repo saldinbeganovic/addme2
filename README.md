@@ -22,18 +22,17 @@ The web application includes creating user accounts, browsing other users, sendi
 
 
 ## Screenshots
-- Welcome page
+- Dashboard
 
-<img src="https://user-images.githubusercontent.com/59819711/151848542-36ecbbe4-5df8-46d4-a7ba-f40c16588e1e.jpg" width="100%" height="100%">
+![image](https://user-images.githubusercontent.com/64772544/155116086-1d779c45-68ad-434d-a7dc-0c85ece5f8b0.png)
 
-- Login page -> Sign in by creating a user or using a google account
 
-<img src="https://user-images.githubusercontent.com/59819711/151848631-bae38dd2-73a8-4feb-be05-51845e61b9c1.png" width="100%" height="100%">
+- Profile page 
 
-- Home page (Matches and Messages and you can edit your profile by clicking on the image next to "My Profile")
+![image](https://user-images.githubusercontent.com/64772544/155116194-28e2d1d0-8c0e-49cc-90ca-8d18820b4646.png)
 
-<img src="https://user-images.githubusercontent.com/59819711/151850803-cd50870b-f419-47ed-95d0-0f8236df280f.png" width="100%" height="100%">
+- Chat
 
-- Conversation (right side), Match (left side)
+![image](https://user-images.githubusercontent.com/64772544/155116293-6a7d87c4-7e10-4eeb-8397-dc2e39139472.png)
 
-<img src="https://user-images.githubusercontent.com/59819711/151851351-0ead9688-4ff2-4f25-9202-5bdbf3f1896f.png" width="100%" height="100%">
+
