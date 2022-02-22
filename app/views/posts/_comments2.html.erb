@@ -10,7 +10,7 @@
 <div class="col-sm-9 col-lg-10 " style="
     padding-left: 0px;
 ">
-  <%= link_to "Delete", "#", class: "float-end  btnfloat ", style: "padding-top:2px;" if can_edit_profile?(comment.account_id) %>
+  <%= link_to "Delete", "/comments/#{comments.id}", method: :delete, class: "float-end  btnfloat ", style: "padding-top:2px;" if can_edit_profile?(comment.account_id) %>
 <p style="max-width: 301px;
 
     word-wrap: break-word;"><strong style="margin-right:3px;"><%= link_to  comment.account.username, profile_path( comment.account.username), class: "color no-underline" %></strong><span class="color3"><%= comment.comment %></span></p>
