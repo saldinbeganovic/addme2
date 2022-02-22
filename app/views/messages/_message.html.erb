@@ -7,7 +7,7 @@
   <%= message.content %>
   </div>
   <div class="author">
-    <%= message.account.username %>
+    <%= link_to message.account.username, profile_path(message.account.username), class: "no-underline"   %>
   </div>
     </div>
 </div>
