@@ -13,7 +13,7 @@
           <%= link_to post.account.username, profile_path(post.account.username), class: "color no-underline" %>
 
           </div>
-        <%= image_tag post.image.variant(saver: { quality: 50 }, resize_to_limit: [700, 500]).processed.service_url, class: "img img-fluid"%>
+        <%= image_tag post.image.variant(saver: { quality: 50 }, resize_to_limit: [700, 500]).service_url, class: "img img-fluid"%>
 
 
         <div class="post-details">
