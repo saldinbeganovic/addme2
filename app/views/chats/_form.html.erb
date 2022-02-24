@@ -4,7 +4,9 @@
 
   <div class="field">
     <%= form.label :name, style: "color:white;" %>
-    <%= form.text_field :name, class: 'form-control' %>
+    <%= form.text_field :name, class: 'form-control', required:"required",
+    oninvalid:"this.setCustomValidity('You can't create an empty chat')",
+     oninput:"this.setCustomValidity('')" %>
   </div>
 
   <div class="actions">
