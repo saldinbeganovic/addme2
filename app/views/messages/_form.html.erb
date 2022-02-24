@@ -3,7 +3,10 @@
 
   <div class="input-group">
 
-    <%= form.text_field :content, class:"form-control", placeholder:"Message...", autocomplete:"off", id: "chatbox" %>
+    <%= form.text_field :content, class:"form-control", placeholder:"Message...", autocomplete:"off", id: "chatbox", required:"required",
+    oninvalid:"this.setCustomValidity('You can't send empty messages')",
+     oninput:"this.setCustomValidity('')"
+     %>
     <%= form.submit "Send", class:"btn btn-primary", id: "chat-btn" %>
   </div>
 
