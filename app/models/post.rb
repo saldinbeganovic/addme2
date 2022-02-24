@@ -4,7 +4,7 @@ has_one_attached :image
 belongs_to :account
 has_many :likes
 has_many :comments
-
+validates :image, :presence => true
 
 
 before_create :set_active
